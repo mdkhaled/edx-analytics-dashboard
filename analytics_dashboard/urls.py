@@ -13,6 +13,8 @@ from django.views.i18n import javascript_catalog
 # pylint: disable=relative-import
 from core import views
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 admin.autodiscover()
 
@@ -67,3 +69,4 @@ if settings.DEBUG:  # pragma: no cover
         urlpatterns += [
             url(r'^__debug__/', include(debug_toolbar.urls)),
         ]
+    urlpatterns += staticfiles_urlpatterns()

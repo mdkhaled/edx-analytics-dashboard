@@ -15,7 +15,6 @@ requirements.py:
 
 requirements.js:
 	npm install
-	$(NODE_BIN)/bower install
 
 test.requirements: requirements
 	pip install -q -r requirements/test.txt --exists-action w
@@ -90,10 +89,10 @@ pull_translations:
 update_translations: pull_translations generate_fake_translations
 
 static_no_compress:
-	$(NODE_BIN)/r.js -o build.js
+	$(NODE_BIN)/r.js -o build.js --logLevel=0
 	# collectstatic creates way too much output with the cldr-data directory output so silence that directory
 	echo "Running collectstatic while silencing cldr-data/main/* ..."
-	python manage.py collectstatic --noinput | sed -n '/.*bower_components\/cldr-data\/main\/.*/!p'
+	python manage.py collectstatic --noinput | sed -n '/.*node_modules\/cldr-data\/main\/.*/!p'
 
 static: static_no_compress
 	python manage.py compress
