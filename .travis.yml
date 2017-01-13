@@ -8,7 +8,7 @@ services:
 
 env:
   # Make sure to update this string on every Insights or Data API release
-  DATA_API_VERSION: "0.20.0-rc.3"
+  DATA_API_VERSION: "0.17.0-rc.1"
   DOCKER_COMPOSE_VERSION: "1.9.0"
 
 before_install:
