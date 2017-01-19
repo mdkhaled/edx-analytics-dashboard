@@ -77,7 +77,6 @@ define(function(require) {
                 });
             }
             Backgrid.Extension.ClientSideFilter.prototype.search.call(this, event);
-            this.execute();
         },
 
         clear: function(event) {
